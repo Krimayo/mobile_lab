@@ -1,14 +1,50 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+  <ion-navbar color="primary">
+    <ion-title item-left>Propertee</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content padding class="masters">
+
+  <ion-slides>
+    <ion-slide *ngFor="let propertie of properties">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start center>
+            <div style="align-items: center">
+                <img style="margin:auto" src="{{propertie.pp_img}}" alt="placeholder">
+                <p>{{propertie.name}}</p>
+            </div>
+          </ion-avatar>
+          <h2 center text-wrap>Launching Apartement {{propertie.property_name}}</h2>
+          <p center>{{propertie.date}}</p>
+          <p>{{propertie.address}}</p>
+        </ion-item>
+
+        <!-- <ion-slides>
+          <ion-slide *ngFor="img of property.img"> -->
+            <ion-item>
+              <img src="{{propertie.img}}" alt="" style="height: 20vh; display: block; margin: auto; width: auto;">
+            </ion-item>
+          <!-- </ion-slide>
+        </ion-slides> -->
+
+
+        <ion-scroll scrollY="true" style="white-space: nowrap; height: 220px;"><ion-item text-wrap style="white-space:pre-line">{{propertie.description}}</ion-item></ion-scroll>
+
+        <br>
+        
+        <div>
+          <button ion-button color="primary" style="width: 250px" (click)="to_vr(propertie.vr)">View in Vr<!-- <ion-icon md="md-glasses"></ion-icon> --></button>
+        </div>
+
+        <br>
+        
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
 </ion-content>
